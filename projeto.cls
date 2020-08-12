@@ -5,7 +5,7 @@
 % Baseado no projeto de Adriano J. Holanda, DCM/FFCLRP/USP
 % https://gitlab.uspdigital.usp.br/sidcm/modelos-ppgca
 % https://www.overleaf.com/latex/templates/ppgca-ffclrp-slash-usp-research-proposal-template/pmkrzphywfqp
-%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%% LICENÇA
 %% This software is distributed under MIT License
 %% https://opensource.org/licenses/MIT
 
