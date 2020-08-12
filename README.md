@@ -1,2 +1,2 @@
 # Modelo-de-Projeto
-README
+Modelo de projeto de pesquisa.
