@@ -1,0 +1,52 @@
+%%%%%%%%%% Arquivo de configuração do projeto
+% Insira seus dados e modifique o modelo com suas preferências
+% Aviso! O modelo não segue uma norma específica
+
+%%%%%%%%%%%%%% Informações dos projeto
+\tipo{Projeto de Pesquisa para Iniciação Científica}
+\titulo{Nome do Projeto}
+\aluno{Nome do Aluno}
+\emailaluno{aluno@universidade.br}
+\orientador{Nome do Orientador}
+\emailorientador{orietador@universidade.br}
+\palavraschave{Projeto, IC, Otimização Combinatória}
+\data{\today}
+
+%%%%%%%%%%%%%% Pacotes extras
+\usepackage{lipsum} % gera texto de preenchimento
+
+%%%%%%%%%%%%%% Confs
+\AtBeginDocument{
+    \maketitle % Gera cabeçalho
+    \pagestyle{plain} % Efetivamente, insere a numeração
+}
+
+\AtEndDocument{
+    \bibliography{bibtex.bib} % Arquivo com o bibtex
+    \bibliographystyle{plain} % Estilo de bibliografia: http://www.openoffice.org/bibliographic/bibtex-defs.html
+}
+
+%%%%%%%%%%%%%%%% Comandos úteis para matemática
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\trans}{^\intercal}
+
+\DeclareMathOperator{\posto}{posto}
+\DeclareMathOperator{\capacidade}{cap}
+\DeclareMathOperator{\valor}{val}
+\DeclareMathOperator{\mdc}{mdc}
+\DeclareMathOperator{\adj}{adj}
+\DeclareMathOperator{\conv}{conv}
+\DeclareMathOperator{\cone}{cone}
+
+\DeclarePairedDelimiter\ceil{\lceil}{\rceil}
+\DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
+
+\newtheorem{teorema}{Teorema}
+\newtheorem{definicao}{Definição}
+\newtheorem{lema}{Lema}
+\newtheorem{proposicao}{Proposição}
+\newtheorem{corolario}{Corolário}
+\newtheorem{fato}{Fato}
+\theoremstyle{definition}
