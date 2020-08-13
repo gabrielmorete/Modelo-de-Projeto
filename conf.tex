@@ -13,17 +13,28 @@
 \data{\today}
 
 %%%%%%%%%%%%%% Pacotes extras
-\usepackage{lipsum} % gera texto de preenchimento
+\usepackage{lipsum} % gera texto dummy
+
+%%%%%%%%%%%%%% Bibliografia
+
+% Para referências estilo ABNT tire o comentário de uma das linhas abaixo 
+% e comente a linha '\bibliographystyle{plain}' logo abaixo.
+% Manual do pacote de referências : https://www.abntex.net.br/
+
+%\usepackage[num]{abntex2cite}	% Referências numéricas padrão ABNT
+%\usepackage[alf]{abntex2cite}  % Referências alfabéticas padrão ABNT
+
+
+\AtEndDocument{
+    \bibliography{bibtex.bib} % Arquivo com o bibtex
+    \bibliographystyle{plain} % Estilo da bibliografia: www.openoffice.org/bibliographic/bibtex-defs.html
+    % Comente a linha acima se estiver usando padrão ABNT
+}
 
 %%%%%%%%%%%%%% Confs
 \AtBeginDocument{
     \maketitle % Gera cabeçalho
     \pagestyle{plain} % Efetivamente, insere a numeração
-}
-
-\AtEndDocument{
-    \bibliography{bibtex.bib} % Arquivo com o bibtex
-    \bibliographystyle{plain} % Estilo de bibliografia: http://www.openoffice.org/bibliographic/bibtex-defs.html
 }
 
 %%%%%%%%%%%%%%%% Comandos úteis para matemática

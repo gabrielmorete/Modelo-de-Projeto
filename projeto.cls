@@ -83,8 +83,7 @@
 \RequirePackage{mathtools} % Matemática, evolução do amsmath
 \RequirePackage{amsthm} % Digitar teoremas e afins
 \RequirePackage{amssymb} % Símbolos de matemática
-%\RequirePackage[alf]{abntex2cite} % Estilo de referência 
-
+%\RequirePackage[brazilian,hyperpageref]{backref}
 %%%%%%%%%%%%%%%% TITULO
 \def\@tipo{\empty}
 \newcommand{\tipo}[1]{\def\@tipo{#1}}
