@@ -5,6 +5,8 @@
 % Baseado no projeto de Adriano J. Holanda, DCM/FFCLRP/USP
 % https://gitlab.uspdigital.usp.br/sidcm/modelos-ppgca
 % https://www.overleaf.com/latex/templates/ppgca-ffclrp-slash-usp-research-proposal-template/pmkrzphywfqp
+% Baseado no projeto anbTeX
+% https://www.abntex.net.br/
 %%%%%%%%%%%%%%%% LICENÇA
 %% This software is distributed under MIT License
 %% https://opensource.org/licenses/MIT
@@ -22,7 +24,7 @@
 \DeclareOption{12pt}{\def\@@ptsize{12pt}}
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{abnt2}}
 \ProcessOptions\relax
-\LoadClass[article,a4paper,\@@ptsize]{abntex2} % extends ABNTEX class
+\LoadClass[article,a4paper,\@@ptsize]{abntex2}
 
 %%%%%%%%%%%%%%%% SEÇÕES
 \RequirePackage{titlesec}
@@ -52,14 +54,8 @@
     \bookmarksetup{startatroot} % fix bookmarks
 }
 
-%%%%%%%%%%%%%%%% \LaTeX
-\RequirePackage{iftex} % Checa qual latex está em uso
-\ifLuaTeX % LuaTeX % Aviso! modelo quebra usando LuaLaTeX
-    \RequirePackage{fontspec}
-    \RequirePackage{polyglossia}
-    \setdefaultlanguage{brazil}
-    \defaultfontfeatures{Ligatures={TeX}}
-\else
+%%%%%%%%%%%%%%%% LaTeX
+\RequirePackage{iftex} % Checa qual compilador está em uso
 \ifXeTeX % XeTeX
     \RequirePackage{fontspec}
     \RequirePackage{polyglossia}
@@ -69,6 +65,13 @@
     \RequirePackage[utf8]{inputenc}
     \RequirePackage[brazil]{babel}
     \RequirePackage[T1]{fontenc}
+\fi
+
+\ifLuaTeX % LuaTeX
+    \RequirePackage{fontspec}
+    \RequirePackage{polyglossia}
+    \setdefaultlanguage{brazil}
+    \defaultfontfeatures{Ligatures={TeX}}
 \fi
 
 %%%%%%%%%%%%%%%% PACOTES
@@ -119,11 +122,11 @@
 
 \makeatletter
 \def\maketitle{%
-  \begin{center}
+\begin{center}
     \commonmaketitle
     \normalfont
     \vspace{.6785cm}
-    \end{center}
+\end{center}
 }
 \makeatother
 
