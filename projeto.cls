@@ -1,15 +1,18 @@
 %%%%%%%%%%%%%%%% AVISO!
-% Altere as configurações do seu projeto no aquivo conf.tex
-% Evite fazer alterações nesse arquivo
+%% Altere as configurações do seu projeto no aquivo conf.tex
+%% Evite fazer alterações nesse arquivo
 %%%%%%%%%%%%%%%% CRÉDITOS
-% Baseado no projeto de Adriano J. Holanda, DCM/FFCLRP/USP
-% https://gitlab.uspdigital.usp.br/sidcm/modelos-ppgca
-% https://www.overleaf.com/latex/templates/ppgca-ffclrp-slash-usp-research-proposal-template/pmkrzphywfqp
-% Baseado no projeto anbTeX
-% https://www.abntex.net.br/
-%%%%%%%%%%%%%%%% LICENÇA
+%% Baseado no projeto de Adriano J. Holanda, DCM/FFCLRP/USP
+%% https://gitlab.uspdigital.usp.br/sidcm/modelos-ppgca
+%% Baseado no projeto anbTeX
+%% https://www.abntex.net.br/
+%% ==========================================================================
+%%
+%% Copyright (c) 2020 Gabriel Morete de Azevedo
+%%
 %% This software is distributed under MIT License
 %% https://opensource.org/licenses/MIT
+%% ==========================================================================
 
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{projeto}
