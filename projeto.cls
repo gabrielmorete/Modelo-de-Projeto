@@ -26,51 +26,6 @@
 \ProcessOptions\relax
 \LoadClass[article,a4paper,\@@ptsize]{abntex2}
 
-%%%%%%%%%%%%%%%% SEÇÕES
-\RequirePackage{titlesec}
-\titleformat{\section}
-  {\normalfont\Large\bfseries}
-  {\thesection}{1em}{}  
-\titleformat{\subsection}
-  {\normalfont\large\bfseries}
-  {\thesubsection}{1em}{}
-  
-%%%%%%%%%%%%%%%% BIBLIOGRAFIA 
-\newcommand\mybibname{Refer\^{e}ncias}
-
-\renewcommand\bibsection{%
-    \begin{center}
-        \section*{\hfil\mybibname\hfil}        
-    \end{center}
-}
-
-\AtBeginDocument{ % Controle do backref
-    \@ifpackageloaded{backref}{ % Checa se carregou o pacote
-        \renewcommand{\backrefpagesname}{Citado na(s) página(s):~}
-        % Texto padrão antes do número das páginas
-        \renewcommand{\backref}{}
-        % Define os textos da citação
-        \renewcommand*{\backrefalt}[4]{
-    	\ifcase #1 %
-    		(Nenhuma citação no texto)%
-    	\or
-    		(Citado na página #2)%
-    	\else
-    		(Citado #1 vezes nas páginas #2)%
-    	\fi}%
-    }{% Opção quando não carregou (void)
-    }
-}
-%%%%%%%%%%%%%%%% RESUMO 
-\renewenvironment{abstract}{
-    \section*{\hfil\abstractname}
-    \begin{quotation}
-        \small\noindent
-}{%
-    \end{quotation}
-    \bookmarksetup{startatroot} % fix bookmarks
-}
-
 %%%%%%%%%%%%%%%% LaTeX
 \RequirePackage{iftex} % Checa qual compilador está em uso
 \ifXeTeX % XeTeX
@@ -92,6 +47,7 @@
 \fi
 
 %%%%%%%%%%%%%%%% PACOTES
+\RequirePackage{etoolbox}
 \RequirePackage{lmodern} % Usa a fonte Latin Modern
 \RequirePackage{indentfirst} % Indenta o primeiro parágrafo de cada seção.
 \RequirePackage{nomencl} % Lista de símbolos
@@ -103,7 +59,71 @@
 \RequirePackage{mathtools} % Matemática, evolução do amsmath
 \RequirePackage{amsthm} % Digitar teoremas e afins
 \RequirePackage{amssymb} % Símbolos de matemática
-%\RequirePackage[brazilian,hyperpageref]{backref} % In dev
+
+%%%%%%%%%%%%%%%% SEÇÕES
+\RequirePackage{titlesec}
+\titleformat{\section}
+  {\normalfont\Large\bfseries}
+  {\thesection}{1em}{}  
+\titleformat{\subsection}
+  {\normalfont\large\bfseries}
+  {\thesubsection}{1em}{}
+  
+%%%%%%%%%%%%%%%% BIBLIOGRAFIA 
+\newcommand\mybibname{Refer\^{e}ncias}
+
+\renewcommand\bibsection{%
+    \begin{center}
+        \section*{\hfil\mybibname\hfil}        
+    \end{center}
+}
+
+\newcounter{__usandoabnt}
+\setcounter{__usandoabnt}{0}
+
+\AtBeginDocument{ 
+    \@ifpackageloaded{backref}{ % Controle do backref
+        \renewcommand{\backrefpagesname}{Citado na(s) página(s):~}
+        % Texto padrão antes do número das páginas
+        \renewcommand{\backref}{}
+        % Define os textos da citação
+        \renewcommand*{\backrefalt}[4]{
+    	\ifcase #1 %
+    		(Nenhuma citação no texto)%
+    	\or
+    		(Citado na página #2)%
+    	\else
+    		(Citado #1 vezes nas páginas #2)%
+    	\fi}%
+    }{}
+    
+    \@ifpackageloaded{abntex2cite}{ % Controle da bibliografia
+        \setcounter{__usandoabnt}{1}
+    }{}
+}
+
+\let\Originalbibibliographystyle\bibliographystyle
+
+% Comando para automatizar a troca de 
+% bibliografia quando não usar abnt
+\newcommand{\bibliografia}[1]{ 
+    \ifthenelse{\value{__usandoabnt} < 1}{
+        \Originalbibibliographystyle{#1}
+    }{
+        \empty
+    }
+}
+
+%%%%%%%%%%%%%%%% RESUMO 
+\renewenvironment{abstract}{
+    \section*{\hfil\abstractname}
+    \begin{quotation}
+        \small\noindent
+}{%
+    \end{quotation}
+    \bookmarksetup{startatroot} % fix bookmarks
+}
+
 %%%%%%%%%%%%%%%% TITULO
 \def\@tipo{\empty}
 \newcommand{\tipo}[1]{\def\@tipo{#1}}
