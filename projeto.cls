@@ -13,6 +13,7 @@
 %% This software is distributed under MIT License
 %% https://opensource.org/licenses/MIT
 %% ==========================================================================
+%% https://github.com/gabrielmorete/Modelo-de-Projeto
 
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{projeto}
