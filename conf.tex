@@ -1,5 +1,6 @@
 %%%%%%%%%% Arquivo de configuração do projeto
 % Insira seus dados e modifique o modelo com suas preferências
+% Comente/descomente linhas para modificar o modelo
 % Aviso! O modelo não segue uma norma específica
 
 %%%%%%%%%%%%%% Informações dos projeto
@@ -16,7 +17,6 @@
 \usepackage{lipsum} % gera texto dummy
 
 %%%%%%%%%%%%%% Bibliografia
-
 % Para referências estilo ABNT tire o comentário de uma das linhas 
 % abaixo e comente a linha '\bibliographystyle{plain}'.
 % Manual do pacote de referências : https://www.abntex.net.br/
@@ -24,12 +24,15 @@
 %\usepackage[num]{abntex2cite}	% Referências numéricas padrão ABNT
 %\usepackage[alf]{abntex2cite}  % Referências alfabéticas padrão ABNT
 
-
 \AtEndDocument{
     \bibliography{bibtex.bib} % Arquivo com o bibtex
     \bibliographystyle{plain} % Estilo da bibliografia: www.openoffice.org/bibliographic/bibtex-defs.html
     % Comente a linha acima se estiver usando padrão ABNT
 }
+
+% Para adicionar backrefs tire o comentário da linha abaixo,
+% backrefs listam as paginas em que uma referência foi citada
+%\usepackage[brazilian,hyperpageref]{backref} % Adiciona backrefs
 
 %%%%%%%%%%%%%% Confs
 \AtBeginDocument{

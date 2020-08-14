@@ -44,6 +44,23 @@
     \end{center}
 }
 
+\AtBeginDocument{ % Controle do backref
+    \@ifpackageloaded{backref}{ % Checa se carregou o pacote
+        \renewcommand{\backrefpagesname}{Citado na(s) página(s):~}
+        % Texto padrão antes do número das páginas
+        \renewcommand{\backref}{}
+        % Define os textos da citação
+        \renewcommand*{\backrefalt}[4]{
+    	\ifcase #1 %
+    		(Nenhuma citação no texto)%
+    	\or
+    		(Citado na página #2)%
+    	\else
+    		(Citado #1 vezes nas páginas #2)%
+    	\fi}%
+    }{% Opção quando não carregou (void)
+    }
+}
 %%%%%%%%%%%%%%%% RESUMO 
 \renewenvironment{abstract}{
     \section*{\hfil\abstractname}
