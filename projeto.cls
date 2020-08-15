@@ -2,10 +2,10 @@
 %% Altere as configurações do seu projeto no aquivo conf.tex
 %% Evite fazer alterações nesse arquivo
 %%%%%%%%%%%%%%%% CRÉDITOS
+%% Baseado no projeto de Lauro César Araujo e equipe anbTeX
+%% https://www.abntex.net.br/
 %% Baseado no projeto de Adriano J. Holanda, DCM/FFCLRP/USP
 %% https://gitlab.uspdigital.usp.br/sidcm/modelos-ppgca
-%% Baseado no projeto anbTeX
-%% https://www.abntex.net.br/
 %% ==========================================================================
 %%
 %% Copyright (c) 2020 Gabriel Morete de Azevedo
@@ -51,18 +51,27 @@
 \fi
 
 %%%%%%%%%%%%%%%% PACOTES
-\RequirePackage{etoolbox}
+\RequirePackage{etoolbox} % Ferramentas uteis
 \RequirePackage{lmodern} % Usa a fonte Latin Modern
 \RequirePackage{indentfirst} % Indenta o primeiro parágrafo de cada seção.
+\RequirePackage{setspace} % Espaçamento
 \RequirePackage{nomencl} % Lista de símbolos
 \RequirePackage{graphicx} % Inclusão de gráficos
-\RequirePackage{fullpage} % Conserta formatação estranha 
 \RequirePackage{multirow} % Tabelas
 \RequirePackage{multicol} % Formatação
 \RequirePackage{setspace} % Espaço entre linhas
 \RequirePackage{mathtools} % Matemática, evolução do amsmath
 \RequirePackage{amsthm} % Digitar teoremas e afins
 \RequirePackage{amssymb} % Símbolos de matemática
+
+
+%%%%%%%%%%%%%%%% Margens
+%% Padrão abnTeX
+\OnehalfSpacing % Outros : \SingleSpacing,\DoubleSpacing
+\setlrmarginsandblock{3cm}{2cm}{*}
+\setulmarginsandblock{3cm}{2cm}{*}
+\checkandfixthelayout
+%% Configuração será ignorada ao importar pacote fullpage
 
 %%%%%%%%%%%%%%%% SEÇÕES
 \RequirePackage{titlesec}
@@ -82,6 +91,7 @@
     \end{center}
 }
 
+% Salva se abnt está em usa para não gerar conflito de estilo
 \newcounter{__usandoabnt}
 \setcounter{__usandoabnt}{0}
 
@@ -106,7 +116,7 @@
     }{}
 }
 
-
+% Tradução do comando
 \newcommand{\bibliografia}[1]{
     \bibliography{#1}
 }
