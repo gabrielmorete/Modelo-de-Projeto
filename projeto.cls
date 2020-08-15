@@ -106,16 +106,16 @@
     }{}
 }
 
-\let\Originalbibibliographystyle\bibliographystyle
 
-% Comando para automatizar a troca de 
-% bibliografia quando não usar abnt
-\newcommand{\bibliografia}[1]{ 
+\newcommand{\bibliografia}[1]{
+    \bibliography{#1}
+}
+
+% Comando para automatizar a troca de bibliografia
+\newcommand{\estilobibliografico}[1]{ 
     \ifthenelse{\value{__usandoabnt} < 1}{
-        \Originalbibibliographystyle{#1}
-    }{
-        \empty
-    }
+        \bibliographystyle{#1}
+    }{}
 }
 
 %%%%%%%%%%%%%%%% RESUMO 
